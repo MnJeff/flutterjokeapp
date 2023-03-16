@@ -26,6 +26,7 @@ class _JokePageState extends State<JokePage> {
     'Teacher: "Kids,what does the chicken give you?" Student: "Meat!" Teacher: "Very good! Now what does the pig give you?" Student: "Bacon!" Teacher: "Great! And what does the fat cow give you?" Student: "Homework!"',
     'The teacher asked Jimmy, "Why is your cat at school today Jimmy?" Jimmy replied crying, "Because I heard my daddy tell my mommy, "I am going to eat that pussy once Jimmy leaves for school today!""',
     'A housewife, an accountant and a lawyer were asked "How much is 2+2?" The housewife replies: "Four!". The accountant says: "I think it\'s either 3 or 4. Let me run those figures through my spreadsheet one more time." The lawyer pulls the drapes, dims the lights and asks in a hushed voice, "How much do you want it to be?"',
+    ""
   ];
 
   int _currentIndex = 0;
@@ -48,7 +49,7 @@ class _JokePageState extends State<JokePage> {
     setState(() {
       _currentIndex++;
     });
-    if (_currentIndex >= _jokes.length) {
+    if (_currentIndex >= 4) {
       showDialog(
         context: context,
         builder: (context) => AlertDialog(
@@ -87,8 +88,8 @@ class _JokePageState extends State<JokePage> {
         child: Column(
           children: [
             Container(
-              height: 150,
-              color: Color.fromARGB(255, 84, 191, 87),
+              height: 130,
+              color: Color.fromRGBO(39, 176, 96, 1),
               child: Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -123,13 +124,18 @@ class _JokePageState extends State<JokePage> {
                 ),
               ),
             ),
-            SizedBox(height: 20.0),
+            SizedBox(height: 30.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Container(
                   width: 130,
                   child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.zero)),
+                      backgroundColor: Color.fromRGBO(44, 126, 219, 1),
+                    ),
                     child: Text('This is Funny'),
                     onPressed: () {
                       setState(() {
@@ -143,7 +149,9 @@ class _JokePageState extends State<JokePage> {
                 Container(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 84, 191, 87)),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.zero)),
+                        backgroundColor: Color.fromRGBO(39, 176, 96, 1)),
                     child: Text('This is Not Funny'),
                     onPressed: () {
                       setState(() {
@@ -156,7 +164,7 @@ class _JokePageState extends State<JokePage> {
                 ),
               ],
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 23.0),
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -166,10 +174,10 @@ class _JokePageState extends State<JokePage> {
                       border: Border(
                           top: BorderSide(
                               color: Color.fromARGB(255, 169, 164, 164),
-                              width: 0.5))),
+                              width: 0.3))),
                   child: Align(
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 8),
                       child: SizedBox(
                         width: 350,
                         child: Text(
